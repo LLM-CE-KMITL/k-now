@@ -69,7 +69,7 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{height:34px;width:auto;}
+  .brand img{height:26px;width:auto;}
   .nav-links{display:flex;gap:34px;align-items:center;}
   .nav-links a{
     font-size:14px;font-weight:600;color:var(--text-dim);
@@ -85,13 +85,13 @@
   .nav-links a:hover::after{width:100%;}
   .nav-cta{
     display:inline-flex;align-items:center;gap:8px;
-    background:linear-gradient(135deg,var(--orange),var(--orange-deep));
-    color:#181008;font-weight:700;font-size:13.5px;
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--text);font-weight:700;font-size:13.5px;
     padding:10px 20px;border-radius:999px;
-    box-shadow:0 6px 20px -6px rgba(247,148,30,0.6);
-    transition:transform .2s ease, box-shadow .2s ease;
+    transition:border-color .2s ease, color .2s ease;
   }
-  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px -6px rgba(247,148,30,0.75);}
+  .nav-cta:hover{border-color:var(--orange);color:var(--orange-2);}
   .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:120;}
   .nav-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
 
@@ -103,7 +103,7 @@
     padding:150px 0 100px;
   }
   .hero-grid{
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center;
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:start;
   }
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
@@ -155,7 +155,7 @@
   .stat .label{font-size:12.5px;color:var(--text-dimmer);margin-top:4px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;}
 
   /* Hero visual — logo mark large */
-  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;margin-top:10px;}
   .logo-orb{
     position:relative;width:100%;max-width:440px;aspect-ratio:1/1;
     display:flex;align-items:center;justify-content:center;
@@ -172,6 +172,19 @@
   }
   .ring-decor.r2{inset:34px;border-color:rgba(247,148,30,0.18);animation-duration:60s;animation-direction:reverse;}
   @keyframes spin{to{transform:rotate(360deg);}}
+  .ring-converge{
+    position:absolute;inset:0;border-radius:50%;
+    border:1px dashed rgba(247,148,30,0.5);
+    animation:converge 4s cubic-bezier(.4,0,.2,1) infinite;
+  }
+  .ring-converge:nth-child(3){animation-delay:0s;}
+  .ring-converge:nth-child(4){animation-delay:1.3s;}
+  .ring-converge:nth-child(5){animation-delay:2.6s;}
+  @keyframes converge{
+    0%{transform:scale(1);opacity:0;}
+    12%{opacity:.7;}
+    100%{transform:scale(0.06);opacity:0;}
+  }
   .hero-visual img{position:relative;z-index:2;width:78%;height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,0.5));}
 
   section{position:relative;z-index:1;padding:120px 0;}
@@ -381,7 +394,7 @@
 <header id="header">
   <nav>
     <a href="#top" class="brand" aria-label="K-NOW Home">
-      <img src="assets/k-now-logo.png" alt="K-NOW logo" style="height:34px;width:auto;">
+      <img src="assets/k-now-logo-bw.png" alt="K-NOW logo" style="height:26px;width:auto;">
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#about" onclick="closeNav()">About</a>
@@ -405,7 +418,7 @@
       <div>
         <div class="eyebrow"><span class="dot"></span> AI Super Computer Laboratory</div>
         <h1 class="hero-title">Where KMITL's <span class="grad">Compute Power</span> Meets Human Curiosity</h1>
-        <p class="hero-lead">K-NOW — KMITL Nexus Of Wisdom — is the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, King Mongkut's Institute of Technology Ladkrabang. We fuel next-generation teaching, research, and innovation with GPU-scale infrastructure.</p>
+        <p class="hero-lead"><strong>K-NOW</strong> — KMITL Nexus Of Wisdom — is the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, King Mongkut's Institute of Technology Ladkrabang. We fuel next-generation teaching, research, and innovation with GPU-scale infrastructure.</p>
         <div class="hero-actions">
           <a href="#facility" class="btn btn-primary">Explore the Facility →</a>
           <a href="#contact" class="btn btn-ghost">Partner With Us</a>
@@ -421,6 +434,9 @@
         <div class="logo-orb">
           <div class="ring-decor"></div>
           <div class="ring-decor r2"></div>
+          <div class="ring-converge"></div>
+          <div class="ring-converge"></div>
+          <div class="ring-converge"></div>
           <img src="assets/k-now-logo.png" alt="K-NOW logo" style="position:relative;z-index:2;width:78%;height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,0.5));">
         </div>
       </div>
@@ -434,15 +450,15 @@
         <span class="section-tag">About K-NOW</span>
         <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin-bottom:20px;letter-spacing:-.02em;">A Nexus Built for Wisdom, Powered by AI</h2>
         <div class="about-copy">
-          <p>K-NOW (KMITL Nexus Of Wisdom) is a dedicated AI supercomputing laboratory established by the Department of Computer Engineering to accelerate discovery across the university. It brings high-performance GPU computing directly to students, faculty, and industry partners.</p>
-          <p>More than infrastructure, K-NOW is a hub where classrooms, research labs, and startups converge — turning raw compute into applied intelligence for Thailand and beyond.</p>
+          <p><strong>K-NOW</strong> (KMITL Nexus Of Wisdom) is a dedicated AI supercomputing laboratory established by the Department of Computer Engineering to accelerate discovery across the university. It brings high-performance GPU computing directly to students, faculty, and industry partners.</p>
+          <p>More than infrastructure, <strong>K-NOW</strong> is a hub where classrooms, research labs, and startups converge — turning raw compute into applied intelligence for Thailand and beyond.</p>
         </div>
         <div class="badge-row">
           <span class="badge">Deep Learning</span>
           <span class="badge">Large Language Models</span>
           <span class="badge">Computer Vision</span>
           <span class="badge">High-Performance Computing</span>
-          <span class="badge">Robotics & Automation</span>
+          <span class="badge">Intelligent Automation Systems</span>
         </div>
       </div>
       <div class="about-card reveal">
@@ -511,7 +527,7 @@
       <div class="section-head center">
         <span class="section-tag">What We Do</span>
         <h2>Three Missions, One Infrastructure</h2>
-        <p>K-NOW exists to serve the full lifecycle of applied AI — from the classroom to the lab bench to real-world deployment.</p>
+        <p><strong>K-NOW</strong> exists to serve the full lifecycle of applied AI — from the classroom to the lab bench to real-world deployment.</p>
       </div>
       <div class="pillars-grid">
         <div class="pillar reveal">
@@ -542,12 +558,12 @@
       <div class="section-head center">
         <span class="section-tag">Research Domains</span>
         <h2>Where the Compute Gets Put to Work</h2>
-        <p>K-NOW supports a wide spectrum of AI disciplines across the department and its partners.</p>
+        <p><strong>K-NOW</strong> supports a wide spectrum of AI disciplines across the department and its partners.</p>
       </div>
       <div class="research-grid">
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h4>Computer Vision</h4><p>Image recognition, detection & scene understanding.</p></div></div>
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div><h4>NLP & Large Language Models</h4><p>Thai & multilingual language model research.</p></div></div>
-        <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"/></svg></div><div><h4>Robotics & Automation</h4><p>Intelligent control, perception and autonomy.</p></div></div>
+        <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"/></svg></div><div><h4>Intelligent Automation Systems</h4><p>Intelligent control, perception and autonomy.</p></div></div>
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4-4 4 4 6-6"/><path d="M14.5 3.5H19v4.5"/><path d="M4 20h16"/></svg></div><div><h4>Data Science & Analytics</h4><p>Predictive modeling and large-scale data mining.</p></div></div>
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><h4>Healthcare AI</h4><p>Diagnostics, medical imaging and bio-signal analysis.</p></div></div>
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div><h4>Distributed & HPC Systems</h4><p>Parallel computing and scalable AI infrastructure.</p></div></div>
@@ -591,9 +607,9 @@
   <!-- STATS BAND -->
   <section class="stats-band">
     <div class="wrap">
-      <div class="sband-item"><div class="n">CE</div><div class="l">Dept. of Computer Engineering</div></div>
-      <div class="sband-item"><div class="n">SoE</div><div class="l">School of Engineering</div></div>
       <div class="sband-item"><div class="n">KMITL</div><div class="l">King Mongkut's Institute of Technology Ladkrabang</div></div>
+      <div class="sband-item"><div class="n">Engineering</div><div class="l">School of Engineering</div></div>
+      <div class="sband-item"><div class="n">CE</div><div class="l">Dept. of Computer Engineering</div></div>
       <div class="sband-item"><div class="n">AI</div><div class="l">Super Computer for AI</div></div>
     </div>
   </section>
@@ -605,8 +621,8 @@
         <div class="cta-copy">
           <span class="section-tag">Contact</span>
           <h2>Let's Build the Next Wave of AI Together</h2>
-          <p>Students, faculty, and industry partners — reach out to explore collaboration, access, or a visit to the K-NOW lab.</p>
-          <a href="mailto:ce@kmitl.ac.th" class="btn btn-primary">Contact the Department →</a>
+          <p>Students, faculty, and industry partners — reach out to explore collaboration, access, or a visit to the <strong>K-NOW</strong> lab.</p>
+          <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener" class="btn btn-primary">Contact the Department →</a>
         </div>
         <div class="contact-card">
           <div class="contact-row">
@@ -614,12 +630,8 @@
             <div><strong>Location</strong><span>Department of Computer Engineering, School of Engineering, KMITL, Bangkok, Thailand</span></div>
           </div>
           <div class="contact-row">
-            <div class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
-            <div><strong>Email</strong><span>ce@kmitl.ac.th</span></div>
-          </div>
-          <div class="contact-row">
             <div class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg></div>
-            <div><strong>Website</strong><span>ce.kmitl.ac.th</span></div>
+            <div><strong>Website</strong><span><a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener" style="color:inherit;">www.ce.kmitl.ac.th</a></span></div>
           </div>
         </div>
       </div>
@@ -632,7 +644,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/k-now-logo.png" alt="K-NOW logo" style="height:30px;width:auto;margin-bottom:14px;">
+        <img src="assets/k-now-logo-bw.png" alt="K-NOW logo" style="height:24px;width:auto;margin-bottom:14px;">
         <p>KMITL Nexus Of Wisdom — the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, KMITL.</p>
       </div>
       <div class="footer-cols">
@@ -646,18 +658,18 @@
         <div class="footer-col">
           <h5>Organization</h5>
           <a href="https://www.kmitl.ac.th" target="_blank" rel="noopener">KMITL</a>
-          <a href="#" target="_blank" rel="noopener">School of Engineering</a>
-          <a href="#" target="_blank" rel="noopener">Dept. of Computer Engineering</a>
+          <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener">School of Engineering</a>
+          <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener">Dept. of Computer Engineering</a>
         </div>
         <div class="footer-col">
           <h5>Contact</h5>
-          <a href="mailto:ce@kmitl.ac.th">ce@kmitl.ac.th</a>
+          <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener">www.ce.kmitl.ac.th</a>
           <a href="#contact">Get in touch</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 K-NOW · Department of Computer Engineering, School of Engineering, KMITL.</span>
+      <span>© 2026 <strong>K-NOW</strong> · Department of Computer Engineering, School of Engineering, KMITL.</span>
       <span>CE-KMITL · Nexus Of Wisdom</span>
     </div>
   </div>
