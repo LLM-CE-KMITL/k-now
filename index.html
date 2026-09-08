@@ -69,7 +69,7 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{height:26px;width:auto;}
+  .brand img{height:26px;width:auto;opacity:.88;}
   .nav-links{display:flex;gap:34px;align-items:center;}
   .nav-links a{
     font-size:14px;font-weight:600;color:var(--text-dim);
@@ -83,15 +83,6 @@
     transition:width .25s ease;
   }
   .nav-links a:hover::after{width:100%;}
-  .nav-cta{
-    display:inline-flex;align-items:center;gap:8px;
-    background:transparent;
-    border:none;
-    color:var(--text);font-weight:700;font-size:14px;
-    padding:6px 0;
-    transition:color .2s ease;
-  }
-  .nav-cta:hover{color:var(--orange-2);}
   .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:120;}
   .nav-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
 
@@ -127,6 +118,7 @@
   .hero-lead{
     font-size:1.13rem;line-height:1.7;color:var(--text-dim);max-width:560px;margin-bottom:38px;
   }
+  .hl{color:var(--text);}
   .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
@@ -342,7 +334,7 @@
 
   footer{border-top:1px solid var(--border);padding:56px 0 32px;position:relative;z-index:1;}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:40px;}
-  .footer-brand img{height:32px;width:auto;margin-bottom:14px;}
+  .footer-brand img{height:32px;width:auto;margin-bottom:14px;opacity:.88;}
   .footer-brand p{color:var(--text-dimmer);font-size:13px;max-width:280px;line-height:1.6;}
   .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
   .footer-col h5{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dimmer);margin-bottom:16px;}
@@ -373,8 +365,6 @@
       padding:40px;transform:translateX(100%);transition:transform .35s ease;border-left:1px solid var(--border);}
     .nav-links.open{transform:translateX(0);}
     .nav-toggle{display:flex;}
-    .nav-cta{display:none;}
-    .nav-links .nav-cta{display:inline-flex;margin-top:10px;}
   }
   @media(max-width:600px){
     .spec-grid,.research-grid{grid-template-columns:1fr;}
@@ -397,7 +387,6 @@
       <a href="#pillars" onclick="closeNav()">What We Do</a>
       <a href="#research" onclick="closeNav()">Research</a>
       <a href="#contact" onclick="closeNav()">Contact</a>
-      <a href="#contact" class="nav-cta" onclick="closeNav()">Get in Touch</a>
     </div>
     <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -413,7 +402,7 @@
       <div>
         <div class="eyebrow"><span class="dot"></span> AI Super Computer Laboratory</div>
         <h1 class="hero-title">Where KMITL's <span class="grad">Compute Power</span> Meets Human Curiosity</h1>
-        <p class="hero-lead"><strong>K-NOW</strong> — KMITL Nexus Of Wisdom — is the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, King Mongkut's Institute of Technology Ladkrabang. We fuel next-generation teaching, research, and innovation with GPU-scale infrastructure.</p>
+        <p class="hero-lead"><strong class="hl">K-NOW</strong> — <strong class="hl">KMITL Nexus Of Wisdom</strong> — is the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, King Mongkut's Institute of Technology Ladkrabang. We fuel next-generation teaching, research, and innovation with GPU-scale infrastructure.</p>
         <div class="hero-actions">
           <a href="#facility" class="btn btn-primary">Explore the Facility →</a>
           <a href="#contact" class="btn btn-ghost">Partner With Us</a>
@@ -422,7 +411,7 @@
           <div class="stat"><div class="num"><span>24/7</span></div><div class="label">GPU Cluster Uptime</div></div>
           <div class="stat"><div class="num">3</div><div class="label">Core Missions</div></div>
           <div class="stat"><div class="num">10+</div><div class="label">Research Domains</div></div>
-          <div class="stat"><div class="num">100%</div><div class="label">KMITL Owned</div></div>
+          <div class="stat"><div class="num">100%</div><div class="label">CE-KMITL Owned</div></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -445,8 +434,8 @@
         <span class="section-tag">About K-NOW</span>
         <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin-bottom:20px;letter-spacing:-.02em;">A Nexus Built for Wisdom, Powered by AI</h2>
         <div class="about-copy">
-          <p><strong>K-NOW</strong> (KMITL Nexus Of Wisdom) is a dedicated AI supercomputing laboratory established by the Department of Computer Engineering to accelerate discovery across the university. It brings high-performance GPU computing directly to students, faculty, and industry partners.</p>
-          <p>More than infrastructure, <strong>K-NOW</strong> is a hub where classrooms, research labs, and startups converge — turning raw compute into applied intelligence for Thailand and beyond.</p>
+          <p><strong class="hl">K-NOW</strong> (<strong class="hl">KMITL Nexus Of Wisdom</strong>) is a dedicated AI supercomputing laboratory established by the Department of Computer Engineering to accelerate discovery across the university. It brings high-performance GPU computing directly to students, faculty, and industry partners.</p>
+          <p>More than infrastructure, <strong class="hl">K-NOW</strong> is a hub where classrooms, research labs, and startups converge — turning raw compute into applied intelligence for Thailand and beyond.</p>
         </div>
         <div class="badge-row">
           <span class="badge">Deep Learning</span>
@@ -522,7 +511,7 @@
       <div class="section-head center">
         <span class="section-tag">What We Do</span>
         <h2>Three Missions, One Infrastructure</h2>
-        <p><strong>K-NOW</strong> exists to serve the full lifecycle of applied AI — from the classroom to the lab bench to real-world deployment.</p>
+        <p><strong class="hl">K-NOW</strong> exists to serve the full lifecycle of applied AI — from the classroom to the lab bench to real-world deployment.</p>
       </div>
       <div class="pillars-grid">
         <div class="pillar reveal">
@@ -553,7 +542,7 @@
       <div class="section-head center">
         <span class="section-tag">Research Domains</span>
         <h2>Where the Compute Gets Put to Work</h2>
-        <p><strong>K-NOW</strong> supports a wide spectrum of AI disciplines across the department and its partners.</p>
+        <p><strong class="hl">K-NOW</strong> supports a wide spectrum of AI disciplines across the department and its partners.</p>
       </div>
       <div class="research-grid">
         <div class="rtag reveal"><div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h4>Computer Vision</h4><p>Image recognition, detection & scene understanding.</p></div></div>
@@ -616,7 +605,7 @@
         <div class="cta-copy">
           <span class="section-tag">Contact</span>
           <h2>Let's Build the Next Wave of AI Together</h2>
-          <p>Students, faculty, and industry partners — reach out to explore collaboration, access, or a visit to the <strong>K-NOW</strong> lab.</p>
+          <p>Students, faculty, and industry partners — reach out to explore collaboration, access, or a visit to the <strong class="hl">K-NOW</strong> lab.</p>
           <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener" class="btn btn-primary">Contact the Department →</a>
         </div>
         <div class="contact-card">
@@ -640,7 +629,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="assets/k-now-logo-bw.png" alt="K-NOW logo" style="height:24px;width:auto;margin-bottom:14px;">
-        <p>KMITL Nexus Of Wisdom — the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, KMITL.</p>
+        <p><strong class="hl">KMITL Nexus Of Wisdom</strong> — the AI supercomputing laboratory of the Department of Computer Engineering, School of Engineering, KMITL.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
@@ -652,8 +641,8 @@
         </div>
         <div class="footer-col">
           <h5>Organization</h5>
-          <a href="https://www.kmitl.ac.th" target="_blank" rel="noopener">KMITL</a>
-          <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener">School of Engineering</a>
+          <a href="https://www.kmitl.ac.th/" target="_blank" rel="noopener">KMITL</a>
+          <a href="https://www.eng.kmitl.ac.th/" target="_blank" rel="noopener">School of Engineering</a>
           <a href="https://www.ce.kmitl.ac.th/" target="_blank" rel="noopener">Dept. of Computer Engineering</a>
         </div>
         <div class="footer-col">
@@ -664,8 +653,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 <strong>K-NOW</strong> · Department of Computer Engineering, School of Engineering, KMITL.</span>
-      <span>CE-KMITL · Nexus Of Wisdom</span>
+      <span>© 2026 <strong class="hl">K-NOW</strong> · Department of Computer Engineering, School of Engineering, KMITL.</span>
+      <span>KMITL · Nexus Of Wisdom</span>
     </div>
   </div>
 </footer>
